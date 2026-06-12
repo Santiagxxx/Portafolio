@@ -105,8 +105,6 @@ export const ProjectsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: index * 0.12 }}
-                onMouseEnter={() => setActiveProjectId(project.id)}
-                onMouseLeave={() => setActiveProjectId(null)}
               >
                 <div className="project-media">
                   <img
@@ -490,13 +488,17 @@ export const ProjectsSection = () => {
 
         .project-detail-panel {
           position: absolute;
-          inset: 1rem;
+          top: 0.65rem;
+          right: 1rem;
+          bottom: 2.2rem;
+          left: 1rem;
           z-index: 4;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-start;
+          gap: 1rem;
           border-radius: 20px;
-          padding: 1.25rem;
+          padding: 1.2rem;
           background:
             radial-gradient(circle at top right, rgba(0, 240, 255, 0.16), transparent 38%),
             radial-gradient(circle at bottom left, rgba(112, 0, 255, 0.2), transparent 40%),
@@ -512,7 +514,6 @@ export const ProjectsSection = () => {
           align-items: center;
           justify-content: space-between;
           gap: 1rem;
-          margin-bottom: 1rem;
           color: var(--accent-cyan);
           font-size: 0.85rem;
           font-weight: 800;
@@ -595,7 +596,10 @@ export const ProjectsSection = () => {
           }
 
           .project-detail-panel {
-            inset: 0.8rem;
+            top: 0.55rem;
+            right: 0.8rem;
+            bottom: 1.8rem;
+            left: 0.8rem;
             padding: 1rem;
             overflow-y: auto;
           }
