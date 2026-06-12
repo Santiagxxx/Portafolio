@@ -29,14 +29,14 @@ export const HeroSection = () => {
           </motion.div>
 
           <motion.h1
-            className="hero-title-1"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            Web Developer <br />
-            <span className="text-gradient">Creative & Modern</span>
-          </motion.h1>
+          className="hero-title-1"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <span className="hero-title-line">Web Developer</span>
+          <span className="hero-title-line text-gradient">Creative & Modern</span>
+        </motion.h1>
 
           <motion.p
             className="hero-description"
