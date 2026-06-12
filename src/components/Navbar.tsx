@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, BookMarked, ContactRound } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { GitHub, LinkedIn } from '@mui/icons-material'; 
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,10 +16,10 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#home' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Habilidades', href: '#skills' },
-    { name: 'Contacto', href: '#contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -47,13 +48,13 @@ export const Navbar = () => {
         </a>
 
         {/* Desktop Nav */} 
-        <div style={{ display: 'none' }} className="desktop-nav">
+        <div style={{ display: 'none' }} className="desktop-nav" >
           <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a 
                   href={link.href} 
-                  style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-secondary)' }}
+                  style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-secondary)'}}
                   onMouseOver={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
                   onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
@@ -66,11 +67,11 @@ export const Navbar = () => {
 
         <div style={{ display: 'none', gap: '0.5rem' }} className="desktop-social">
           <a href="https://github.com/Santiagxxx" target="_blank" rel="noreferrer" className="social-link">
-            <BookMarked size={20} />
+            <GitHub fontSize="small" />
             <span className="social-text">GitHub</span>
           </a>
           <a href="https://www.linkedin.com/in/santiago-puentes-giraldo-b893b6332/" target="_blank" rel="noreferrer" className="social-link">
-            <ContactRound size={20} />
+            <LinkedIn fontSize="small" />
             <span className="social-text">LinkedIn</span>
           </a>
         </div>

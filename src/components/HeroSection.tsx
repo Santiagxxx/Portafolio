@@ -22,7 +22,7 @@ export const HeroSection = () => {
               marginBottom: '1.5rem',
               border: '1px solid rgba(0, 240, 255, 0.2)'
             }}>
-              Hola, bienvenido a mi portafolio
+              Hi, welcome to My Portfolio
             </span>
           </motion.div>
 
@@ -32,8 +32,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', marginBottom: '1.5rem' }}
           >
-            Desarrollador Web <br />
-            <span className="text-gradient">Creativo & Moderno</span>
+            Web Developer <br />
+            <span className="text-gradient">Creative & Modern</span>
           </motion.h1>
 
           <motion.p 
@@ -49,8 +49,8 @@ export const HeroSection = () => {
               lineHeight: 1.8
             }}
           >
-            Transformo ideas complejas en experiencias digitales intuitivas y llamativas. 
-            Con enfoque en React, diseño de interfaces y desarrollo full-stack.
+            I transform complex ideas into intuitive, eye-catching digital experiences. 
+            With a focus on React, interface design, and full-stack development.
           </motion.p>
 
           <motion.div 
@@ -60,10 +60,10 @@ export const HeroSection = () => {
             style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
           >
             <a href="#projects" className="btn btn-primary">
-              Ver Proyectos <ArrowRight size={18} />
+              See Projects <ArrowRight size={18} />
             </a>
             <a href="#contact" className="btn btn-outline glass">
-              Contactar <Download size={18} />
+              Contact <Download size={18} />
             </a>
           </motion.div>
         </div>
