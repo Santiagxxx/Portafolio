@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { GitHub, ArrowOutward, AutoAwesome } from '@mui/icons-material';
 
 const projects = [
@@ -9,6 +10,12 @@ const projects = [
     highlight: 'Shopping Cart + Admin Panel',
     description:
       'A space-themed sales platform with a dynamic shopping cart, product management and an advanced admin experience.',
+    problem:
+      'Online stores need a clear purchase flow and an admin space to manage products without creating a confusing experience.',
+    solution:
+      'I built a visual e-commerce interface with cart logic, product sections and an admin-oriented structure for managing the platform.',
+    result:
+      'A more complete sales experience that combines attractive visuals with functional store management.',
     image:
       'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
     tags: ['TypeScript', 'CSS', 'Tailwind', 'JavaScript'],
@@ -21,6 +28,12 @@ const projects = [
     highlight: 'Large Dataset Management',
     description:
       'A management system designed to organize, process and analyze large volumes of information with a cleaner workflow.',
+    problem:
+      'Large datasets can become difficult to read, filter and manage when information is not presented in a structured way.',
+    solution:
+      'I developed a system focused on organizing information and improving the way data is handled inside the workflow.',
+    result:
+      'A practical analytics management tool that makes information easier to process and review.',
     image:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
     tags: ['Python', 'C++'],
@@ -33,6 +46,12 @@ const projects = [
     highlight: 'Sales + Payments + Inventory',
     description:
       'A digital platform for agricultural commerce, including product management, payments and e-commerce tools for local producers.',
+    problem:
+      'Local agricultural producers need digital tools to show products, manage sales and connect with customers more directly.',
+    solution:
+      'I worked on an e-commerce platform with product management, payments and inventory logic for agricultural commerce.',
+    result:
+      'A digital bridge between producers and buyers, focused on improving visibility and sales management.',
     image:
       'https://adagri.com/wp-content/uploads/2026/01/Adagri_blog_Kampanie-Performance-Max-w-ecommerce-rolniczym.jpg',
     tags: ['TypeScript', 'Java', 'PostgreSQL', 'Spring Boot'],
@@ -41,6 +60,14 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+  const [activeProjectId, setActiveProjectId] = useState<number | null>(null);
+
+  const toggleProject = (projectId: number) => {
+    setActiveProjectId((currentProjectId) =>
+      currentProjectId === projectId ? null : projectId
+    );
+  };
+
   return (
     <section id="projects" className="section projects-section">
       <div className="container">
@@ -67,66 +94,121 @@ export const ProjectsSection = () => {
         </motion.div>
 
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              className="project-card glass"
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: index * 0.12 }}
-            >
-              <div className="project-media">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-image"
-                  loading="lazy"
-                />
+          {projects.map((project, index) => {
+            const isActive = activeProjectId === project.id;
 
-                <div className="project-overlay"></div>
+            return (
+              <motion.article
+                key={project.id}
+                className="project-card glass"
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: index * 0.12 }}
+                onMouseEnter={() => setActiveProjectId(project.id)}
+                onMouseLeave={() => setActiveProjectId(null)}
+              >
+                <div className="project-media">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                    loading="lazy"
+                  />
 
-                <span className="project-number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+                  <div className="project-overlay"></div>
 
-                <span className="project-category">
-                  {project.category}
-                </span>
-              </div>
-
-              <div className="project-content">
-                <div className="project-top">
-                  <span className="project-highlight">
-                    {project.highlight}
+                  <span className="project-number">
+                    {String(index + 1).padStart(2, '0')}
                   </span>
 
-                  <h3>{project.title}</h3>
+                  <span className="project-category">
+                    {project.category}
+                  </span>
                 </div>
 
-                <p>{project.description}</p>
+                <div className="project-content">
+                  <div className="project-top">
+                    <span className="project-highlight">
+                      {project.highlight}
+                    </span>
 
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                    <h3>{project.title}</h3>
+                  </div>
+
+                  <p>{project.description}</p>
+
+                  <div className="project-tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-actions">
+                    <button
+                      type="button"
+                      className="project-btn project-btn-soft"
+                      onClick={() => toggleProject(project.id)}
+                      aria-expanded={isActive}
+                    >
+                      {isActive ? 'Hide details' : 'View details'}
+                    </button>
+
+                    <a
+                      href={project.github}
+                      className="project-btn project-btn-outline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <GitHub fontSize="small" />
+                      Code
+                      <ArrowOutward fontSize="small" />
+                    </a>
+                  </div>
                 </div>
 
-                <div className="project-actions">
-                  <a
-                    href={project.github}
-                    className="project-btn project-btn-outline"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <GitHub fontSize="small" />
-                    Code
-                    <ArrowOutward fontSize="small" />
-                  </a>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      className="project-detail-panel"
+                      initial={{ opacity: 0, y: 28, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 22, scale: 0.96 }}
+                      transition={{ duration: 0.28, ease: 'easeOut' }}
+                    >
+                      <div className="project-detail-header">
+                        <span>Project breakdown</span>
+                        <button
+                          type="button"
+                          onClick={() => setActiveProjectId(null)}
+                          aria-label="Close project details"
+                        >
+                          ×
+                        </button>
+                      </div>
+
+                      <div className="project-detail-grid">
+                        <div>
+                          <strong>Problem</strong>
+                          <p>{project.problem}</p>
+                        </div>
+
+                        <div>
+                          <strong>Solution</strong>
+                          <p>{project.solution}</p>
+                        </div>
+
+                        <div>
+                          <strong>Result</strong>
+                          <p>{project.result}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
 
@@ -187,7 +269,7 @@ export const ProjectsSection = () => {
           position: relative;
           z-index: 2;
           display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
           gap: 2rem;
           align-items: stretch;
         }
@@ -232,6 +314,7 @@ export const ProjectsSection = () => {
           opacity: 0;
           transition: opacity 0.35s ease;
           pointer-events: none;
+          z-index: 5;
         }
 
         .project-card:hover {
@@ -358,8 +441,9 @@ export const ProjectsSection = () => {
         }
 
         .project-actions {
-          display: flex;
-          gap: 1rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.75rem;
           margin-top: auto;
         }
 
@@ -373,12 +457,19 @@ export const ProjectsSection = () => {
           border-radius: 14px;
           font-family: 'Outfit', sans-serif;
           font-weight: 700;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
+          cursor: pointer;
           transition:
             transform 0.3s ease,
             background 0.3s ease,
             border-color 0.3s ease,
             color 0.3s ease;
+        }
+
+        .project-btn-soft {
+          color: var(--accent-cyan);
+          background: rgba(0, 240, 255, 0.08);
+          border: 1px solid rgba(0, 240, 255, 0.18);
         }
 
         .project-btn-outline {
@@ -387,50 +478,135 @@ export const ProjectsSection = () => {
           border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        .project-btn-outline:hover {
+        .project-btn:hover {
           transform: translateY(-2px);
+        }
+
+        .project-btn-outline:hover {
           color: var(--accent-cyan);
           border-color: rgba(0, 240, 255, 0.35);
           background: rgba(0, 240, 255, 0.08);
         }
 
+        .project-detail-panel {
+          position: absolute;
+          inset: 1rem;
+          z-index: 4;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 20px;
+          padding: 1.25rem;
+          background:
+            radial-gradient(circle at top right, rgba(0, 240, 255, 0.16), transparent 38%),
+            radial-gradient(circle at bottom left, rgba(112, 0, 255, 0.2), transparent 40%),
+            rgba(5, 5, 5, 0.9);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .project-detail-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          color: var(--accent-cyan);
+          font-size: 0.85rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+        }
+
+        .project-detail-header button {
+          width: 32px;
+          height: 32px;
+          border-radius: 999px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: rgba(255, 255, 255, 0.06);
+          color: #fff;
+          font-size: 1.3rem;
+          line-height: 1;
+          cursor: pointer;
+        }
+
+        .project-detail-grid {
+          display: grid;
+          gap: 0.8rem;
+        }
+
+        .project-detail-grid strong {
+          display: block;
+          margin-bottom: 0.25rem;
+          color: #fff;
+          font-size: 0.9rem;
+        }
+
+        .project-detail-grid p {
+          margin: 0;
+          color: #d4d4d8;
+          line-height: 1.55;
+          font-size: 0.86rem;
+        }
+
+        @media (max-width: 900px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .project-media {
+            height: 220px;
+          }
+
+          .project-card:hover {
+            transform: none;
+          }
+        }
+
         @media (max-width: 600px) {
-  .projects-heading {
-    margin-bottom: 2rem;
-  }
+          .projects-heading {
+            margin-bottom: 2rem;
+          }
 
-  .projects-subtitle {
-    font-size: 0.95rem;
-  }
+          .projects-subtitle {
+            font-size: 0.95rem;
+          }
 
-  .projects-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.3rem;
-  }
+          .projects-grid {
+            gap: 1.3rem;
+          }
 
-  .project-media {
-    height: 190px;
-  }
+          .project-media {
+            height: 190px;
+          }
 
-  .project-content {
-    padding: 1.25rem;
-  }
+          .project-content {
+            padding: 1.25rem;
+          }
 
-  .project-content h3 {
-    font-size: 1.35rem;
-  }
+          .project-content h3 {
+            font-size: 1.35rem;
+          }
 
-  .project-content p {
-    font-size: 0.92rem;
-  }
+          .project-actions {
+            grid-template-columns: 1fr;
+          }
 
-  .project-category {
-    max-width: calc(100% - 2rem);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
+          .project-detail-panel {
+            inset: 0.8rem;
+            padding: 1rem;
+            overflow-y: auto;
+          }
+
+          .project-category {
+            max-width: calc(100% - 2rem);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
       `}</style>
     </section>
   );

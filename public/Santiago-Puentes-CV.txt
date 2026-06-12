@@ -1,0 +1,34 @@
+SANTIAGO PUENTES GIRALDO
+Software Developer
+
+PROFILE
+Software developer focused on building modern, responsive and useful digital products. Experience working with React interfaces, backend services, APIs and databases.
+
+CORE SKILLS
+- Frontend Development: React, TypeScript, Tailwind CSS, JavaScript
+- Backend & APIs: Node.js, Java, .NET, REST APIs
+- Databases: PostgreSQL, MongoDB, SQL Server
+- Tools: Git, Docker, AWS, Linux
+- Mobile: React Native, Expo
+
+FEATURED PROJECTS
+
+Shop Dev
+Space-themed e-commerce platform with shopping cart logic, product management and an admin experience.
+Tech stack: TypeScript, CSS, Tailwind, JavaScript
+Repository: https://github.com/Santiagxxx/ShopDev.git
+
+SGIN V8
+Analytics management application designed to organize, process and analyze large datasets.
+Tech stack: Python, C++
+Repository: https://github.com/Santiagxxx/SGIN-V8.git
+
+HuertaDirecta
+Agricultural commerce platform with sales, payments, inventory and product management tools for local producers.
+Tech stack: TypeScript, Java, PostgreSQL, Spring Boot
+Repository: https://github.com/HuertaDirectaProject/HdirectaJava.git
+
+CONTACT
+Email: santipuentes2017@gmail.com
+LinkedIn: https://www.linkedin.com/in/santiago-puentes-giraldo-b893b6332/
+GitHub: https://github.com/Santiagxxx

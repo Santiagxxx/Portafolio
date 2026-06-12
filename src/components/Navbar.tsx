@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { GitHub, LinkedIn } from "@mui/icons-material";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { GitHub, LinkedIn } from '@mui/icons-material';
 import { ThemeToggle } from './ThemeToggle';
 
 export const Navbar = () => {
@@ -14,9 +14,9 @@ export const Navbar = () => {
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const closeMenu = () => {
@@ -24,10 +24,11 @@ export const Navbar = () => {
   };
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' }
   ];
 
   return (
@@ -37,7 +38,7 @@ export const Navbar = () => {
       transition={{ duration: 0.5 }}
       className="navbar-root"
     >
-      <div className={`navbar-shell ${scrolled ? "scrolled" : ""}`}>
+      <div className={`navbar-shell ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-content">
           <a href="#home" className="navbar-logo" onClick={closeMenu}>
             <span>
@@ -79,7 +80,7 @@ export const Navbar = () => {
           </div>
 
           <div className="mobile-actions">
-         <ThemeToggle />
+            <ThemeToggle />
 
             <button
               className="mobile-toggle"
@@ -88,7 +89,7 @@ export const Navbar = () => {
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={23} /> : <Menu size={23} />}
             </button>
           </div>
         </div>
@@ -99,7 +100,7 @@ export const Navbar = () => {
           <motion.div
             className="mobile-menu"
             initial={{ opacity: 0, y: -12, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: "auto" }}
+            animate={{ opacity: 1, y: 0, height: 'auto' }}
             exit={{ opacity: 0, y: -12, height: 0 }}
             transition={{ duration: 0.25 }}
           >
@@ -150,18 +151,18 @@ export const Navbar = () => {
         }
 
         .navbar-shell {
-            pointer-events: auto;
-            width: 100%;
-            max-width: 1120px;
-            margin: 0 auto;
-            border: 1px solid var(--navbar-border);
-            border-radius: 999px;
-            background: var(--navbar-bg-scrolled);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            box-shadow: var(--navbar-shadow);
-            transition: all 0.35s ease;
-          }
+          pointer-events: auto;
+          width: 100%;
+          max-width: 1120px;
+          margin: 0 auto;
+          border: 1px solid var(--navbar-border);
+          border-radius: 999px;
+          background: var(--navbar-bg-scrolled);
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          box-shadow: var(--navbar-shadow);
+          transition: all 0.35s ease;
+        }
 
         .navbar-content {
           display: flex;
@@ -170,28 +171,21 @@ export const Navbar = () => {
           gap: 1rem;
           max-width: 1120px;
           margin: 0 auto;
-          padding: 0.85rem 1.2rem;
+          padding: 0.75rem 1rem;
         }
 
         .navbar-logo {
           display: flex;
           align-items: center;
-          text-decoration: none;
           color: var(--nav-text-hover);
+          text-decoration: none;
         }
 
         .navbar-logo span {
-          font-size: 1.45rem;
+          font-size: 1.35rem;
           font-weight: 800;
           font-family: Outfit, system-ui, sans-serif;
           letter-spacing: -0.03em;
-        }
-
-        .text-gradient {
-          background: linear-gradient(90deg, #a855f7, #7c3aed);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
         }
 
         .desktop-nav,
@@ -199,21 +193,44 @@ export const Navbar = () => {
           display: none;
         }
 
+        .mobile-actions {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+        }
+
+        .mobile-actions .theme-toggle,
+        .navbar-shell .theme-toggle {
+          width: 40px;
+          height: 40px;
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.08);
+          border-color: var(--navbar-border);
+          color: var(--nav-text-hover);
+        }
+
+        :root[data-theme='light'] .mobile-actions .theme-toggle,
+        :root[data-theme='light'] .navbar-shell .theme-toggle {
+          background: rgba(15, 23, 42, 0.06);
+          color: #0f172a;
+        }
+
         .mobile-toggle {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 44px;
-          height: 44px;
+          width: 40px;
+          height: 40px;
           border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          background: rgba(255, 255, 255, 0.04);
-          color: #fff;
+          border: 1px solid var(--navbar-border);
+          background: rgba(255, 255, 255, 0.06);
+          color: var(--nav-text-hover);
           cursor: pointer;
           transition: all 0.3s ease;
         }
 
-        .mobile-toggle:hover {
+        .mobile-toggle:hover,
+        .mobile-actions .theme-toggle:hover {
           border-color: rgba(168, 85, 247, 0.55);
           background: rgba(168, 85, 247, 0.12);
           transform: translateY(-1px);
@@ -225,11 +242,12 @@ export const Navbar = () => {
           max-width: 1120px;
           margin: 10px auto 0;
           overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          border: 1px solid var(--navbar-border);
           border-radius: 28px;
-          background: rgba(5, 5, 5, 0.88);
+          background: var(--navbar-bg-scrolled);
           backdrop-filter: blur(18px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+          -webkit-backdrop-filter: blur(18px);
+          box-shadow: var(--navbar-shadow);
           padding: 1rem;
         }
 
@@ -246,15 +264,15 @@ export const Navbar = () => {
           display: block;
           padding: 0.85rem 1rem;
           border-radius: 18px;
-          color: var(--text-secondary, #cbd5e1);
+          color: var(--nav-text);
           text-decoration: none;
           font-size: 0.95rem;
-          font-weight: 500;
+          font-weight: 600;
           transition: all 0.3s ease;
         }
 
         .mobile-links a:hover {
-          color: var(--text-primary, #fff);
+          color: var(--nav-text-hover);
           background: rgba(168, 85, 247, 0.12);
         }
 
@@ -272,148 +290,18 @@ export const Navbar = () => {
           gap: 0.5rem;
           padding: 0.85rem 1rem;
           border-radius: 18px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: var(--text-secondary, #cbd5e1);
+          border: 1px solid var(--navbar-border);
+          color: var(--nav-text);
           text-decoration: none;
           font-size: 0.9rem;
-          font-weight: 500;
+          font-weight: 600;
           transition: all 0.3s ease;
         }
 
         .mobile-social a:hover {
-          color: var(--text-primary, #fff);
+          color: var(--nav-text-hover);
           border-color: rgba(168, 85, 247, 0.5);
           background: rgba(168, 85, 247, 0.12);
-        }
-
-        .mobile-actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.mobile-actions .theme-toggle {
-  width: 40px;
-  height: 40px;
-  box-shadow: none;
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--navbar-border);
-  color: var(--nav-text-hover);
-}
-
-.mobile-toggle {
-  color: var(--nav-text-hover);
-  border-color: var(--navbar-border);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.mobile-menu {
-  background: var(--navbar-bg-scrolled);
-  border-color: var(--navbar-border);
-  box-shadow: var(--navbar-shadow);
-}
-
-.mobile-links a,
-.mobile-social a {
-  color: var(--nav-text);
-}
-
-.mobile-links a:hover,
-.mobile-social a:hover {
-  color: var(--nav-text-hover);
-}
-
-        @media (min-width: 768px) {
-  .navbar-root {
-    padding: 0;
-  }
-
-  .mobile-actions {
-    display: none;
-  }
-
-  .navbar-shell {
-    max-width: 100%;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    background: var(--navbar-bg);
-    box-shadow: none;
-  }
-
-        .navbar-shell.scrolled {
-          max-width: 1120px;
-          margin-top: 16px;
-          border: 1px solid var(--navbar-border);
-          border-radius: 999px;
-          background: var(--navbar-bg-scrolled);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
-          box-shadow: var(--navbar-shadow);
-        }
-
-          .navbar-content {
-            padding: 1rem 1.5rem;
-          }
-
-          .navbar-shell.scrolled .navbar-content {
-            padding: 0.75rem 1.25rem;
-          }
-
-          .desktop-nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-          }
-
-          .nav-link {
-            position: relative;
-            color: var(--nav-text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-          }
-
-          .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 100%;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, #a855f7, #7c3aed);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-          }
-
-          .nav-link:hover {
-            color: var(--nav-text-hover);
-          }
-
-          .nav-link:hover::after {
-            transform: scaleX(1);
-          }
-
-          .desktop-social {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-          }
-
-          .mobile-toggle {
-            display: none;
-          }
-
-          .mobile-menu {
-            display: none;
-          }
         }
 
         .social-link {
@@ -442,7 +330,7 @@ export const Navbar = () => {
           white-space: nowrap;
           transition: all 0.3s ease;
           font-size: 0.85rem;
-          font-weight: 500;
+          font-weight: 600;
         }
 
         .social-link:hover .social-text {
@@ -450,48 +338,119 @@ export const Navbar = () => {
           opacity: 1;
         }
 
-        .navbar-shell .theme-toggle {
-            width: 42px;
-            height: 42px;
+        @media (min-width: 768px) {
+          .navbar-root {
+            padding: 0;
+          }
+
+          .navbar-shell {
+            max-width: 100%;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            background: var(--navbar-bg);
             box-shadow: none;
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--navbar-border);
+          }
+
+          .navbar-shell.scrolled {
+            max-width: 1120px;
+            margin-top: 16px;
+            border: 1px solid var(--navbar-border);
+            border-radius: 999px;
+            background: var(--navbar-bg-scrolled);
+            box-shadow: var(--navbar-shadow);
+          }
+
+          .navbar-content {
+            padding: 1rem 1.5rem;
+          }
+
+          .navbar-shell.scrolled .navbar-content {
+            padding: 0.75rem 1.25rem;
+          }
+
+          .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .desktop-social {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+
+          .mobile-actions,
+          .mobile-menu {
+            display: none;
+          }
+
+          .nav-link {
+            position: relative;
+            color: var(--nav-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+          }
+
+          .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+          }
+
+          .nav-link:hover {
             color: var(--nav-text-hover);
           }
 
-          :root[data-theme='light'] .navbar-shell .theme-toggle {
-            background: rgba(15, 23, 42, 0.06);
-            color: #0f172a;
+          .nav-link:hover::after {
+            transform: scaleX(1);
           }
-          
-          @media (max-width: 480px) {
-  .navbar-root {
-    padding: 10px 10px;
-  }
+        }
 
-  .navbar-content {
-    padding: 0.7rem 0.85rem;
-  }
+        @media (max-width: 420px) {
+          .navbar-root {
+            padding: 10px;
+          }
 
-  .navbar-logo span {
-    font-size: 1.2rem;
-  }
+          .navbar-content {
+            padding: 0.65rem 0.8rem;
+          }
 
-  .mobile-toggle {
-    width: 40px;
-    height: 40px;
-  }
+          .navbar-logo span {
+            font-size: 1.08rem;
+          }
 
-  .mobile-menu {
-    width: calc(100% - 20px);
-    border-radius: 22px;
-    padding: 0.75rem;
-  }
+          .mobile-actions .theme-toggle,
+          .mobile-toggle {
+            width: 38px;
+            height: 38px;
+          }
 
-  .mobile-social {
-    grid-template-columns: 1fr;
-  }
-}
+          .mobile-menu {
+            width: calc(100% - 20px);
+            border-radius: 22px;
+            padding: 0.75rem;
+          }
+
+          .mobile-social {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
     </motion.nav>
   );
