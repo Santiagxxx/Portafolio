@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { Code } from 'lucide-react';
 
 const projects = [
   {
