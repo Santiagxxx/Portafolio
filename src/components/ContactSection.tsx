@@ -57,7 +57,7 @@ export const ContactSection = () => {
             Get <span className="text-gradient">in Touch</span>
           </motion.h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="contact-grid">
             
             {/* Contact Info */}
             <motion.div
@@ -168,6 +168,47 @@ export const ContactSection = () => {
           .contact-card:hover {
             transform: translateX(10px);
           }
+
+          .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  min-width: 0;
+}
+
+.contact-card p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .contact-card {
+    align-items: flex-start !important;
+    padding: 1.2rem !important;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .form-input {
+    font-size: 16px;
+  }
+
+  footer {
+    padding: 1.5rem 1rem !important;
+    font-size: 0.9rem;
+  }
+}
         `}</style>
       </section>
 

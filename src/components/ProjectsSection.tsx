@@ -187,7 +187,7 @@ export const ProjectsSection = () => {
           position: relative;
           z-index: 2;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+         grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
           gap: 2rem;
           align-items: stretch;
         }
@@ -394,15 +394,43 @@ export const ProjectsSection = () => {
           background: rgba(0, 240, 255, 0.08);
         }
 
-        @media (max-width: 900px) {
-          .projects-grid {
-            grid-template-columns: 1fr;
-          }
+        @media (max-width: 600px) {
+  .projects-heading {
+    margin-bottom: 2rem;
+  }
 
-          .project-media {
-            height: 220px;
-          }
-        }
+  .projects-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.3rem;
+  }
+
+  .project-media {
+    height: 190px;
+  }
+
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.35rem;
+  }
+
+  .project-content p {
+    font-size: 0.92rem;
+  }
+
+  .project-category {
+    max-width: calc(100% - 2rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
       `}</style>
     </section>
   );

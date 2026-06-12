@@ -78,15 +78,19 @@ export const Navbar = () => {
             </a>
           </div>
 
-          <button
-            className="mobile-toggle"
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded={mobileMenuOpen}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="mobile-actions">
+         <ThemeToggle />
+
+            <button
+              className="mobile-toggle"
+              type="button"
+              aria-label="Abrir menú"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -282,20 +286,61 @@ export const Navbar = () => {
           background: rgba(168, 85, 247, 0.12);
         }
 
-        @media (min-width: 768px) {
-        .navbar-root {
-          padding: 0;
-        }
+        .mobile-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
 
-        .navbar-shell {
-          max-width: 100%;
-          border-radius: 0;
-          border-left: none;
-          border-right: none;
-          border-top: none;
-          background: var(--navbar-bg);
-          box-shadow: none;
-        }
+.mobile-actions .theme-toggle {
+  width: 40px;
+  height: 40px;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--navbar-border);
+  color: var(--nav-text-hover);
+}
+
+.mobile-toggle {
+  color: var(--nav-text-hover);
+  border-color: var(--navbar-border);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mobile-menu {
+  background: var(--navbar-bg-scrolled);
+  border-color: var(--navbar-border);
+  box-shadow: var(--navbar-shadow);
+}
+
+.mobile-links a,
+.mobile-social a {
+  color: var(--nav-text);
+}
+
+.mobile-links a:hover,
+.mobile-social a:hover {
+  color: var(--nav-text-hover);
+}
+
+        @media (min-width: 768px) {
+  .navbar-root {
+    padding: 0;
+  }
+
+  .mobile-actions {
+    display: none;
+  }
+
+  .navbar-shell {
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background: var(--navbar-bg);
+    box-shadow: none;
+  }
 
         .navbar-shell.scrolled {
           max-width: 1120px;
@@ -418,6 +463,35 @@ export const Navbar = () => {
             background: rgba(15, 23, 42, 0.06);
             color: #0f172a;
           }
+          
+          @media (max-width: 480px) {
+  .navbar-root {
+    padding: 10px 10px;
+  }
+
+  .navbar-content {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .navbar-logo span {
+    font-size: 1.2rem;
+  }
+
+  .mobile-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-menu {
+    width: calc(100% - 20px);
+    border-radius: 22px;
+    padding: 0.75rem;
+  }
+
+  .mobile-social {
+    grid-template-columns: 1fr;
+  }
+}
       `}</style>
     </motion.nav>
   );

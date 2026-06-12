@@ -176,7 +176,7 @@ export const SkillsSection = () => {
 
         .skills-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
           gap: 2rem;
           align-items: stretch;
         }
@@ -341,6 +341,49 @@ export const SkillsSection = () => {
             min-height: var(--skill-card-height, 400px);
           }
         }
+          @media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.3rem;
+  }
+
+  .skill-card {
+    min-height: 390px;
+  }
+
+  .skill-card-face {
+    padding: 1.35rem;
+  }
+
+  .skill-header {
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .skill-header h3,
+  .skill-card-back h3 {
+    font-size: 1.15rem;
+  }
+
+  .skill-icon {
+    padding: 0.85rem;
+  }
+
+  .skill-card-back p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .skill-tags span {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .skill-hint {
+    left: 1.35rem;
+    bottom: 1.2rem;
+  }
+}
       `}</style>
     </section>
   );

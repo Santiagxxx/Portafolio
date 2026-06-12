@@ -38,6 +38,23 @@ export const HeroSection = () => {
           <span className="hero-title-line text-gradient">Creative & Modern</span>
         </motion.h1>
 
+        <motion.div
+            className="hero-mobile-image-wrapper"
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.38 }}
+          >
+            <div className="hero-mobile-glow"></div>
+
+            <div className="hero-mobile-blob">
+              <img
+                src="/images/YO.png"
+                alt="Foto de Santiago"
+                className="hero-mobile-image"
+              />
+            </div>
+          </motion.div>
+
           <motion.p
             className="hero-description"
             initial={{ opacity: 0, y: 20 }}
@@ -65,20 +82,20 @@ export const HeroSection = () => {
 
         {/* LADO DERECHO */}
         <motion.div
-          className="hero-image-wrapper"
-          initial={{ opacity: 0, scale: 0.9, x: 40 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-        >
-          <div className="hero-image-glow"></div>
+            className="hero-image-wrapper hero-image-desktop"
+            initial={{ opacity: 0, scale: 0.9, x: 40 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+          >
+            <div className="hero-image-glow"></div>
 
-          <div className="hero-blob">
-            <img
-              src="/images/YO.png"
-              alt="Foto de Santiago"
-              className="hero-image"
-            />
-          </div>
+            <div className="hero-blob">
+              <img
+                src="/images/YO.png"
+                alt="Foto de Santiago"
+                className="hero-image"
+              />
+            </div>
         </motion.div>
 
       </div>
