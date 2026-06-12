@@ -22,7 +22,7 @@ export const HeroSection = () => {
               marginBottom: '1.5rem',
               border: '1px solid rgba(0, 240, 255, 0.2)'
             }}>
-              Hi, welcome to My Portfolio
+              Hi, I´m Santiago Puentes Giraldo
             </span>
           </motion.div>
 
