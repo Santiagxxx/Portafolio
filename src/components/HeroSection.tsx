@@ -13,20 +13,20 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <span className="hero-badge">
-              Hola, bienvenido a mi portafolio
+            <span style={{ 
+              display: 'inline-block', 
+              padding: '0.5rem 1rem', 
+              borderRadius: '50px', 
+              background: 'rgba(0, 240, 255, 0.1)',
+              color: 'var(--accent-cyan)',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              marginBottom: '1.5rem',
+              border: '1px solid rgba(0, 240, 255, 0.2)'
+            }}>
+              Hi, I´m Santiago Puentes Giraldo
             </span>
           </motion.div>
-
-          <motion.h1
-            className="hero-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            Desarrollador Web<br />
-            
-          </motion.h1>
 
           <motion.h1
             className="hero-title-1"
@@ -34,8 +34,8 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <span className="text-gradient">Creativo & Moderno</span><br />
-            
+            Web Developer <br />
+            <span className="text-gradient">Creative & Modern</span>
           </motion.h1>
 
           <motion.p
@@ -44,8 +44,8 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Transformo ideas complejas en experiencias digitales intuitivas y llamativas.
-            Con enfoque en React, diseño de interfaces y desarrollo full-stack.
+            I transform complex ideas into intuitive, eye-catching digital experiences. 
+            With a focus on React, interface design, and full-stack development.
           </motion.p>
 
           <motion.div
@@ -55,15 +55,10 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <a href="#projects" className="btn btn-primary">
-              Ver Proyectos <ArrowRight size={18} />
+              See Projects <ArrowRight size={18} />
             </a>
-
-            <a
-              href="/files/HV INGLES SANTIAGO P.pdf"
-              download
-              className="btn btn-outline glass"
-            >
-              Descargar CV <Download size={18} />
+            <a href="#contact" className="btn btn-outline glass">
+              Contact <Download size={18} />
             </a>
           </motion.div>
         </div>

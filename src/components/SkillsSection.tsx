@@ -4,9 +4,9 @@ import { Code2, Database, Layout, Server, Smartphone, Terminal } from 'lucide-re
 const skills = [
   { name: 'Frontend Development', icon: <Layout size={32} />, color: 'var(--accent-cyan)', items: ['React', 'TypeScript', 'Tailwind CSS'] },
   { name: 'Backend & APIs', icon: <Server size={32} />, color: 'var(--accent-purple)', items: ['Node.js', 'JAVA', '.NET', 'REST APIs'] },
-  { name: 'Bases de Datos', icon: <Database size={32} />, color: 'var(--accent-magenta)', items: ['PostgreSQL', 'MongoDB', 'SQLServer'] },
-  { name: 'Herramientas', icon: <Terminal size={32} />, color: '#00ff88', items: ['Git', 'Docker', 'AWS', 'Linux'] },
-  { name: 'Lenguajes', icon: <Code2 size={32} />, color: '#ffaa00', items: ['JavaScript', 'TypeScript', 'R', 'C#'] },
+  { name: 'Databases', icon: <Database size={32} />, color: 'var(--accent-magenta)', items: ['PostgreSQL', 'MongoDB', 'SQLServer'] },
+  { name: 'Tools', icon: <Terminal size={32} />, color: '#00ff88', items: ['Git', 'Docker', 'AWS', 'Linux'] },
+  { name: 'Languages', icon: <Code2 size={32} />, color: '#ffaa00', items: ['JavaScript', 'TypeScript', 'R', 'C#', 'Python'] },
   { name: 'Mobile', icon: <Smartphone size={32} />, color: '#0088ff', items: ['React Native', 'Expo'] },
 ];
 
@@ -21,7 +21,7 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Mis <span className="text-gradient">Habilidades</span>
+          My <span className="text-gradient">Skills</span>
         </motion.h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>

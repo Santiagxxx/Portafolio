@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Send, CheckCircle, XCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle, XCircle } from 'lucide-react';
+import { LinkedIn } from '@mui/icons-material'; 
 
 export const ContactSection = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -24,7 +25,7 @@ export const ContactSection = () => {
             name,
             email,
             message,
-            _subject: `Nuevo mensaje de ${name} desde el Portafolio`,
+            _subject: `New message from ${name} from the Portfolio`,
             _template: "table"
         })
       });
@@ -53,7 +54,7 @@ export const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Ponte en <span className="text-gradient">Contacto</span>
+            Get <span className="text-gradient">in Touch</span>
           </motion.h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto' }}>
@@ -67,14 +68,14 @@ export const ContactSection = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
             >
               <div>
-                <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Hablemos sobre tu próximo proyecto.</h3>
+                <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Let's talk about your next project.</h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.6 }}>
-                  Ya sea que tengas una idea en mente o necesites un desarrollador para tu equipo, estoy aquí para ayudar.
+                  Whether you have an idea in mind or need a developer for your team, I'm here to help.
                 </p>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <a href="mailto:hola@ejemplo.com" className="card glass contact-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', padding: '1.5rem' }}>
+                <a href="mailto:santipuentes2017@gmail.com" className="card glass contact-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', padding: '1.5rem' }}>
                   <div style={{ padding: '1rem', background: 'rgba(0, 240, 255, 0.1)', borderRadius: '50%', color: 'var(--accent-cyan)' }}>
                     <Mail size={24} />
                   </div>
@@ -84,9 +85,9 @@ export const ContactSection = () => {
                   </div>
                 </a>
 
-                <a href="#" className="card glass contact-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', padding: '1.5rem' }}>
+                <a href="https://www.linkedin.com/in/santiago-puentes-giraldo-b893b6332/" className="card glass contact-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', padding: '1.5rem' }}>
                   <div style={{ padding: '1rem', background: 'rgba(112, 0, 255, 0.1)', borderRadius: '50%', color: 'var(--accent-purple)' }}>
-                    <MessageSquare size={24} />
+                    <LinkedIn fontSize="large" />
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>LinkedIn</h4>
@@ -109,16 +110,16 @@ export const ContactSection = () => {
                 onSubmit={handleSubmit}
               >
                 <div>
-                  <label htmlFor="name" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Nombre</label>
-                  <input type="text" id="name" name="name" className="form-input" placeholder="Tu nombre" required />
+                  <label htmlFor="name" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Name</label>
+                  <input type="text" id="name" name="name" className="form-input" placeholder="Your name" required />
                 </div>
                 <div>
                   <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Email</label>
-                  <input type="email" id="email" name="email" className="form-input" placeholder="tu@email.com" required />
+                  <input type="email" id="email" name="email" className="form-input" placeholder="you@email.com" required />
                 </div>
                 <div>
-                  <label htmlFor="message" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Mensaje</label>
-                  <textarea id="message" name="message" rows={4} className="form-input" placeholder="¿Cómo puedo ayudarte?" required></textarea>
+                  <label htmlFor="message" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Message</label>
+                  <textarea id="message" name="message" rows={4} className="form-input" placeholder="How can I help you?" required></textarea>
                 </div>
                 <button 
                   type="submit" 
@@ -126,19 +127,19 @@ export const ContactSection = () => {
                   style={{ justifyContent: 'center', marginTop: '1rem', opacity: status === 'loading' ? 0.7 : 1 }}
                   disabled={status === 'loading'}
                 >
-                  {status === 'loading' ? 'Enviando...' : 'Enviar Mensaje'} 
+                  {status === 'loading' ? 'Sending...' : 'Send Message'} 
                   {status === 'idle' && <Send size={18} />}
                   {status === 'success' && <CheckCircle size={18} />}
                   {status === 'error' && <XCircle size={18} />}
                 </button>
                 {status === 'success' && (
                   <p style={{ color: '#00f0ff', textAlign: 'center', fontSize: '0.9rem', marginTop: '-0.5rem' }}>
-                    ¡Mensaje enviado con éxito!
+                    Message sent successfully!
                   </p>
                 )}
                 {status === 'error' && (
                   <p style={{ color: '#ff0055', textAlign: 'center', fontSize: '0.9rem', marginTop: '-0.5rem' }}>
-                    Hubo un error al enviar el mensaje. Intenta de nuevo.
+                    There was an error sending the message. Please try again.
                   </p>
                 )}
               </form>

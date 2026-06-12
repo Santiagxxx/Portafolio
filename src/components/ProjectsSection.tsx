@@ -1,33 +1,33 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+//import { Code } from 'lucide-react';
+import { GitHub } from '@mui/icons-material'; 
+
 
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Cósmico',
-    description: 'Plataforma de ventas con temática espacial. Incluye carrito de compras dinámico y panel de administración avanzado.',
+    title: 'Shop Dev',
+    description: 'A space-themed sales platform. Includes a dynamic shopping cart and advanced admin panel.',
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    github: '#',
-    demo: '#'
+    tags: ['TypeScript', 'CSS', 'Tailwind', 'JS'],
+    github: 'https://github.com/Santiagxxx/ShopDev.git'
   },
   {
     id: 2,
-    title: 'App de Gestión Financiera',
-    description: 'Dashboard analítico para control de gastos personales con gráficos interactivos y reportes en tiempo real.',
+    title: 'Analytics Management App - SGIN V8',
+    description: 'A system for managing large datasets.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-    tags: ['TypeScript', 'Next.js', 'Tailwind', 'Prisma'],
-    github: '#',
-    demo: '#'
+    tags: ['Python', 'C++'],
+    github: 'https://github.com/Santiagxxx/SGIN-V8.git'
+
   },
   {
     id: 3,
-    title: 'Red Social para Devs',
-    description: 'Comunidad interactiva donde desarrolladores pueden compartir fragmentos de código y colaborar en proyectos.',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Firebase', 'Framer Motion'],
-    github: '#',
-    demo: '#'
+    title: 'HuertaDirecta',
+    description: 'A system for information, sales, payments, and product management with e-commerce for our agricultural region.',
+    image: 'https://adagri.com/wp-content/uploads/2026/01/Adagri_blog_Kampanie-Performance-Max-w-ecommerce-rolniczym.jpg',
+    tags: ['TypeScript', 'Java', 'PostgreSQL', 'Spring Boot'],
+    github: 'https://github.com/HuertaDirectaProject/HdirectaJava.git'
   }
 ];
 
@@ -42,7 +42,7 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Mis <span className="text-gradient">Proyectos</span>
+          My <span className="text-gradient">Projects</span>
         </motion.h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
@@ -94,10 +94,7 @@ export const ProjectsSection = () => {
 
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <a href={project.github} className="btn btn-outline" style={{ flex: 1, justifyContent: 'center', padding: '0.5rem' }}>
-                    <Code size={18} /> Código
-                  </a>
-                  <a href={project.demo} className="btn btn-primary" style={{ flex: 1, justifyContent: 'center', padding: '0.5rem' }}>
-                    <ExternalLink size={18} /> Demo
+                    <GitHub fontSize="small" /> Code
                   </a>
                 </div>
               </div>
