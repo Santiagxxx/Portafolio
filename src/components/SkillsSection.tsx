@@ -6,7 +6,7 @@ const skills = [
   { name: 'Backend & APIs', icon: <Server size={32} />, color: 'var(--accent-purple)', items: ['Node.js', 'JAVA', '.NET', 'REST APIs'] },
   { name: 'Bases de Datos', icon: <Database size={32} />, color: 'var(--accent-magenta)', items: ['PostgreSQL', 'MongoDB', 'SQLServer'] },
   { name: 'Herramientas', icon: <Terminal size={32} />, color: '#00ff88', items: ['Git', 'Docker', 'AWS', 'Linux'] },
-  { name: 'Lenguajes', icon: <Code2 size={32} />, color: '#ffaa00', items: ['JavaScript', 'TypeScript', 'R', 'C#'] },
+  { name: 'Lenguajes', icon: <Code2 size={32} />, color: '#ffaa00', items: ['JavaScript', 'TypeScript', 'R', 'C#', 'Python'] },
   { name: 'Mobile', icon: <Smartphone size={32} />, color: '#0088ff', items: ['React Native', 'Expo'] },
 ];
 

@@ -74,7 +74,7 @@ export const ContactSection = () => {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <a href="mailto:hola@ejemplo.com" className="card glass contact-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', padding: '1.5rem' }}>
+                <a href="mailto:santipuentes2017@gmail.com" className="card glass contact-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', padding: '1.5rem' }}>
                   <div style={{ padding: '1rem', background: 'rgba(0, 240, 255, 0.1)', borderRadius: '50%', color: 'var(--accent-cyan)' }}>
                     <Mail size={24} />
                   </div>

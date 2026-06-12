@@ -4,21 +4,20 @@ import { ExternalLink, Code } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Cósmico',
+    title: 'Shop Dev',
     description: 'Plataforma de ventas con temática espacial. Incluye carrito de compras dinámico y panel de administración avanzado.',
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    github: '#',
-    demo: '#'
+    tags: ['TypeScript', 'CSS', 'Tailwind', 'JS'],
+    github: 'https://github.com/Santiagxxx/ShopDev.git'
   },
   {
     id: 2,
-    title: 'App de Gestión Financiera',
-    description: 'Dashboard analítico para control de gastos personales con gráficos interactivos y reportes en tiempo real.',
+    title: 'App de Gestión Analitica - SGIN V8',
+    description: 'Sistema para la gestion de grandes datos',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-    tags: ['TypeScript', 'Next.js', 'Tailwind', 'Prisma'],
-    github: '#',
-    demo: '#'
+    tags: ['Python', 'C++'],
+    github: 'https://github.com/Santiagxxx/SGIN-V8.git'
+
   },
   {
     id: 3,
@@ -26,8 +25,7 @@ const projects = [
     description: 'Comunidad interactiva donde desarrolladores pueden compartir fragmentos de código y colaborar en proyectos.',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
     tags: ['React', 'Firebase', 'Framer Motion'],
-    github: '#',
-    demo: '#'
+    github: '#'
   }
 ];
 
@@ -95,9 +93,6 @@ export const ProjectsSection = () => {
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <a href={project.github} className="btn btn-outline" style={{ flex: 1, justifyContent: 'center', padding: '0.5rem' }}>
                     <Code size={18} /> Código
-                  </a>
-                  <a href={project.demo} className="btn btn-primary" style={{ flex: 1, justifyContent: 'center', padding: '0.5rem' }}>
-                    <ExternalLink size={18} /> Demo
                   </a>
                 </div>
               </div>
