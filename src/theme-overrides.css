@@ -1,0 +1,53 @@
+/* Theme-aware overrides for dynamic project details */
+
+:root,
+:root[data-theme='dark'] {
+  --project-detail-bg:
+    radial-gradient(circle at top right, rgba(0, 240, 255, 0.16), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(112, 0, 255, 0.2), transparent 40%),
+    rgba(5, 5, 5, 0.9);
+  --project-detail-border: rgba(255, 255, 255, 0.12);
+  --project-detail-title: #ffffff;
+  --project-detail-text: #d4d4d8;
+  --project-detail-close-bg: rgba(255, 255, 255, 0.06);
+  --project-detail-close-text: #ffffff;
+  --project-detail-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme='light'] {
+  --project-detail-bg:
+    radial-gradient(circle at top right, rgba(8, 145, 178, 0.16), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(124, 58, 237, 0.16), transparent 40%),
+    rgba(255, 255, 255, 0.92);
+  --project-detail-border: rgba(15, 23, 42, 0.12);
+  --project-detail-title: #0f172a;
+  --project-detail-text: #475569;
+  --project-detail-close-bg: rgba(15, 23, 42, 0.06);
+  --project-detail-close-text: #0f172a;
+  --project-detail-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
+}
+
+.projects-section .project-detail-panel {
+  background: var(--project-detail-bg) !important;
+  border-color: var(--project-detail-border) !important;
+  box-shadow: var(--project-detail-shadow) !important;
+}
+
+.projects-section .project-detail-grid strong {
+  color: var(--project-detail-title) !important;
+}
+
+.projects-section .project-detail-grid p {
+  color: var(--project-detail-text) !important;
+}
+
+.projects-section .project-detail-header button {
+  background: var(--project-detail-close-bg) !important;
+  border-color: var(--project-detail-border) !important;
+  color: var(--project-detail-close-text) !important;
+}
+
+:root[data-theme='light'] .projects-section .project-detail-panel {
+  backdrop-filter: blur(20px) saturate(1.15) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.15) !important;
+}
