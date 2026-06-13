@@ -305,7 +305,7 @@ export const ContactSection = () => {
           </div>
 
           <div className="footer-actions">
-            <a href="/Santiago-Puentes-CV.txt" download>
+            <a href="/files/HV INGLES SANTIAGO P.pdf" download>
               <Download size={16} />
               CV
             </a>

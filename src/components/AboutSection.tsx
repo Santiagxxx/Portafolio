@@ -55,7 +55,7 @@ export const AboutSection = () => {
             </a>
 
             <a
-              href="/Santiago-Puentes-CV.txt"
+              href="/files/HV INGLES SANTIAGO P.pdf"
               download
               className="btn btn-outline glass"
             >
