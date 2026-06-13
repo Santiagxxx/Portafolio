@@ -52,8 +52,8 @@ export const AnimatedProfileImage = ({ className = '', compact = false }: Animat
           <defs>
             <linearGradient id="avatarBg" x1="62" y1="55" x2="360" y2="421" gradientUnits="userSpaceOnUse">
               <stop stopColor="#00f0ff" />
-              <stop offset="0.5" stopColor="#6d5cff" />
-              <stop offset="1" stopColor="#ff2b8a" />
+              <stop offset="0.5" stopColor="#3723f0" />
+              <stop offset="1" stopColor="#2b8eff" />
             </linearGradient>
             <linearGradient id="shirtGradient" x1="142" y1="300" x2="278" y2="438" gradientUnits="userSpaceOnUse">
               <stop stopColor="#0f2a4d" />
