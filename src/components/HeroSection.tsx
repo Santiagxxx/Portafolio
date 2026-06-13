@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
+import { AnimatedProfileImage } from './AnimatedProfileImage';
 
 export const HeroSection = () => {
   return (
@@ -29,31 +30,19 @@ export const HeroSection = () => {
           </motion.div>
 
           <motion.h1
-          className="hero-title-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <span className="hero-title-line">Web Developer</span>
-          <span className="hero-title-line text-gradient">Creative & Modern</span>
-        </motion.h1>
-
-        <motion.div
-            className="hero-mobile-image-wrapper"
-            initial={{ opacity: 0, scale: 0.92, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.38 }}
+            className="hero-title-1"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="hero-mobile-glow"></div>
+            <span className="hero-title-line">Web Developer</span>
+            <span className="hero-title-line text-gradient">Creative & Modern</span>
+          </motion.h1>
 
-            <div className="hero-mobile-blob">
-              <img
-                src="/images/YO.png"
-                alt="Foto de Santiago"
-                className="hero-mobile-image"
-              />
-            </div>
-          </motion.div>
+          <AnimatedProfileImage
+            compact
+            className="hero-mobile-image-wrapper"
+          />
 
           <motion.p
             className="hero-description"
@@ -81,22 +70,7 @@ export const HeroSection = () => {
         </div>
 
         {/* LADO DERECHO */}
-        <motion.div
-            className="hero-image-wrapper hero-image-desktop"
-            initial={{ opacity: 0, scale: 0.9, x: 40 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-          >
-            <div className="hero-image-glow"></div>
-
-            <div className="hero-blob">
-              <img
-                src="/images/YO.png"
-                alt="Foto de Santiago"
-                className="hero-image"
-              />
-            </div>
-        </motion.div>
+        <AnimatedProfileImage className="hero-image-wrapper hero-image-desktop" />
 
       </div>
     </section>
