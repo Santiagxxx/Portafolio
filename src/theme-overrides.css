@@ -51,3 +51,40 @@
   backdrop-filter: blur(20px) saturate(1.15) !important;
   -webkit-backdrop-filter: blur(20px) saturate(1.15) !important;
 }
+
+/* Blue-only profile image background */
+.animated-profile-aura {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(0, 240, 255, 0.34), transparent 40%),
+    radial-gradient(circle at 72% 68%, rgba(37, 99, 235, 0.34), transparent 44%),
+    radial-gradient(circle, rgba(14, 165, 233, 0.16), transparent 60%) !important;
+}
+
+.animated-profile-ring-one {
+  border-color: rgba(0, 240, 255, 0.32) !important;
+}
+
+.animated-profile-ring-two {
+  border-color: rgba(37, 99, 235, 0.32) !important;
+}
+
+.animated-profile-frame {
+  background: linear-gradient(135deg, #00f0ff 0%, #0ea5e9 42%, #2563eb 100%) !important;
+  box-shadow:
+    0 0 40px rgba(0, 240, 255, 0.24),
+    0 0 80px rgba(37, 99, 235, 0.22),
+    0 24px 70px rgba(0, 0, 0, 0.32) !important;
+}
+
+.animated-profile-frame::before {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 32%),
+    radial-gradient(circle at 70% 20%, rgba(125, 211, 252, 0.22), transparent 28%) !important;
+}
+
+:root[data-theme='light'] .animated-profile-frame {
+  box-shadow:
+    0 0 34px rgba(14, 165, 233, 0.2),
+    0 0 70px rgba(37, 99, 235, 0.18),
+    0 24px 70px rgba(15, 23, 42, 0.16) !important;
+}
