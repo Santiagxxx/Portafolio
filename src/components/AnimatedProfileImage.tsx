@@ -41,142 +41,11 @@ export const AnimatedProfileImage = ({ className = '', compact = false }: Animat
       </div>
 
       <div className="animated-profile-frame">
-        <motion.svg
-          className="animated-profile-illustration"
-          viewBox="0 0 420 470"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Animated professional illustration of Santiago"
-        >
-          <defs>
-            <linearGradient id="avatarBg" x1="62" y1="55" x2="360" y2="421" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#00f0ff" />
-              <stop offset="0.5" stopColor="#3723f0" />
-              <stop offset="1" stopColor="#2b8eff" />
-            </linearGradient>
-            <linearGradient id="shirtGradient" x1="142" y1="300" x2="278" y2="438" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#0f2a4d" />
-              <stop offset="1" stopColor="#07111f" />
-            </linearGradient>
-            <linearGradient id="skinGradient" x1="172" y1="118" x2="261" y2="277" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#f1c3a2" />
-              <stop offset="1" stopColor="#c98260" />
-            </linearGradient>
-            <linearGradient id="screenGradient" x1="283" y1="200" x2="344" y2="272" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#111827" />
-              <stop offset="1" stopColor="#020617" />
-            </linearGradient>
-            <filter id="softShadow" x="76" y="74" width="286" height="380" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-              <feOffset dy="18" />
-              <feGaussianBlur stdDeviation="18" />
-              <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.28 0" />
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-            </filter>
-          </defs>
-
-          <rect width="420" height="470" rx="178" fill="url(#avatarBg)" />
-          <circle cx="82" cy="88" r="70" fill="white" opacity="0.12" />
-          <circle cx="340" cy="356" r="82" fill="#050505" opacity="0.12" />
-
-          <motion.g
-            filter="url(#softShadow)"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 5.8, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <path
-              d="M128 446C133 363 157 315 207 315C263 315 292 365 298 446H128Z"
-              fill="url(#shirtGradient)"
-            />
-            <path
-              d="M166 332C179 351 195 363 211 366C228 361 241 348 253 331C240 318 225 312 208 313C191 314 178 320 166 332Z"
-              fill="#e8eefc"
-              opacity="0.92"
-            />
-            <path d="M196 348L211 365L226 348L216 446H206L196 348Z" fill="#101827" opacity="0.95" />
-            <path d="M165 338C183 366 190 397 191 446H129C133 389 144 354 165 338Z" fill="#0b1b34" opacity="0.68" />
-            <path d="M254 338C236 366 229 397 228 446H297C291 388 277 354 254 338Z" fill="#06101f" opacity="0.72" />
-
-            <motion.g
-              animate={{ rotate: [-1, 1.4, -1] }}
-              transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
-              style={{ transformOrigin: '212px 214px' }}
-            >
-              <path
-                d="M179 244C180 292 191 323 211 323C234 323 248 290 249 245L179 244Z"
-                fill="url(#skinGradient)"
-              />
-              <path d="M184 268C195 282 223 286 245 260C241 297 229 321 211 323C195 321 186 300 184 268Z" fill="#aa6a50" opacity="0.26" />
-
-              <path
-                d="M154 164C157 115 188 88 228 96C269 104 286 135 280 181C275 225 252 266 216 268C178 270 151 219 154 164Z"
-                fill="url(#skinGradient)"
-              />
-              <path d="M153 177C145 174 139 181 142 194C145 207 153 214 160 209L153 177Z" fill="#d79a77" />
-              <path d="M279 178C288 174 295 181 292 195C289 209 280 215 273 210L279 178Z" fill="#c98664" />
-
-              <path
-                d="M153 157C155 116 181 82 232 86C254 88 274 100 285 119C273 113 259 111 242 116C220 122 204 116 184 122C168 127 160 139 153 157Z"
-                fill="#101018"
-              />
-              <path
-                d="M161 169C164 145 177 132 194 128C214 124 225 132 245 127C260 123 273 128 281 143C278 116 255 97 226 96C185 94 158 122 153 158L161 169Z"
-                fill="#06070b"
-              />
-              <path
-                d="M186 104C166 112 156 129 151 154C162 141 174 134 189 130C209 125 223 131 243 126C255 123 268 125 279 132C263 105 229 92 186 104Z"
-                fill="#171821"
-              />
-
-              <path d="M183 179C192 174 201 174 211 179" stroke="#15151b" strokeWidth="4" strokeLinecap="round" />
-              <path d="M232 178C242 173 253 174 261 180" stroke="#15151b" strokeWidth="4" strokeLinecap="round" />
-              <circle cx="200" cy="195" r="4" fill="#15151b" />
-              <circle cx="247" cy="195" r="4" fill="#15151b" />
-              <path d="M222 194C219 209 215 219 211 229C218 232 225 231 231 226" stroke="#a6654f" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M197 242C211 252 231 251 246 240" stroke="#7a3e36" strokeWidth="4" strokeLinecap="round" />
-            </motion.g>
-
-            <motion.g
-              animate={{ y: [0, -5, 0], rotate: [0, -2, 0] }}
-              transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
-              style={{ transformOrigin: '315px 244px' }}
-            >
-              <path
-                d="M282 221C296 211 313 217 319 235L344 312C349 327 340 340 326 340C316 340 307 334 304 324L280 247C276 237 275 227 282 221Z"
-                fill="#c98260"
-              />
-              <rect x="291" y="192" width="55" height="82" rx="13" fill="url(#screenGradient)" />
-              <rect x="297" y="199" width="43" height="68" rx="9" fill="#0f172a" />
-              <circle cx="319" cy="233" r="11" fill="#6d5cff" opacity="0.7" />
-              <circle cx="333" cy="211" r="4" fill="#00f0ff" />
-            </motion.g>
-
-            <motion.g
-              animate={{ y: [0, 5, 0], rotate: [0, 2.5, 0] }}
-              transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
-              style={{ transformOrigin: '135px 332px' }}
-            >
-              <path
-                d="M154 335C132 327 120 309 116 282C114 269 122 259 134 260C144 261 151 268 153 279C156 296 162 307 174 315L154 335Z"
-                fill="#d0916d"
-              />
-              <path d="M153 279C168 286 180 299 189 319" stroke="#c98260" strokeWidth="13" strokeLinecap="round" />
-            </motion.g>
-          </motion.g>
-
-          <motion.g
-            animate={{ opacity: [0.38, 0.78, 0.38] }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <path d="M82 118H132" stroke="white" strokeWidth="5" strokeLinecap="round" opacity="0.4" />
-            <path d="M296 95H348" stroke="white" strokeWidth="5" strokeLinecap="round" opacity="0.35" />
-            <path d="M298 384H354" stroke="white" strokeWidth="5" strokeLinecap="round" opacity="0.28" />
-          </motion.g>
-        </motion.svg>
+        <img
+          src="/images/YO.png"
+          alt="Foto profesional de Santiago Puentes"
+          className="animated-profile-photo"
+        />
       </div>
 
       <style>{`
@@ -241,7 +110,8 @@ export const AnimatedProfileImage = ({ className = '', compact = false }: Animat
           overflow: hidden;
           padding: 5px;
           border-radius: var(--profile-radius);
-          background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-magenta));
+          background:
+            linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-magenta));
           box-shadow:
             0 0 40px rgba(0, 240, 255, 0.22),
             0 0 80px rgba(112, 0, 255, 0.22),
@@ -263,11 +133,15 @@ export const AnimatedProfileImage = ({ className = '', compact = false }: Animat
           opacity: 0.72;
         }
 
-        .animated-profile-illustration {
+        .animated-profile-photo {
           width: 100%;
           height: 100%;
+          object-fit: cover;
+          object-position: center top;
           display: block;
           border-radius: inherit;
+          transform: scale(1.035) translateY(4px);
+          animation: profilePhotoBreath 6.5s ease-in-out infinite;
         }
 
         .profile-floating-card {
@@ -332,6 +206,15 @@ export const AnimatedProfileImage = ({ className = '', compact = false }: Animat
           }
           50% {
             border-radius: 55% 45% 42% 58% / 52% 60% 40% 48%;
+          }
+        }
+
+        @keyframes profilePhotoBreath {
+          0%, 100% {
+            transform: scale(1.035) translateY(4px);
+          }
+          50% {
+            transform: scale(1.07) translateY(0);
           }
         }
 
